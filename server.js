@@ -5,7 +5,7 @@ const { mergePdfs } = require("./merge");
 
 const app = express();
 const upload = multer({ dest: "uploads/" });
-const port = 3000;
+const port = 10000;
 
 app.use("/static", express.static("public"));
 
@@ -20,7 +20,7 @@ app.post("/merge", upload.array("pdfs", 2), async (req, res) => {
     path.join(__dirname, req.files[1].path)
   );
 
-  res.redirect("http://localhost:3000/static/merged.pdf");
+  res.redirect("/static/merged.pdf");
   //   res.send({ data: req.files });
 
   // req.files is array of `photos` files
